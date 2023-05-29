@@ -1,0 +1,47 @@
+class ParkingSystem {
+public:
+    ParkingSystem(int big, int medium, int small) {
+
+        b = big;
+        m = medium;
+        s = small;
+    }
+
+    int getBigSpots() {
+        return this->b;
+    }
+    
+    int getMediumSpots() {
+        return this->m;
+    }
+
+    int getSmallSpots() {
+        return this->s;
+    }
+
+    void subtract(int &num) {
+        num = num - 1;
+    }
+
+    bool addCar(int carType) {
+        
+        if (carType == 1 && getBigSpots() > 0) {
+            subtract(this->b);
+            return true;
+        }
+
+        if (carType == 2 && getMediumSpots() > 0) {
+            subtract(this->m);
+            return true;
+        }
+
+        if (carType == 3 && getSmallSpots() > 0) {
+            subtract(this->s);
+            return true;
+        }
+        return false;
+    }
+
+private:
+    int b, m, s;
+};
